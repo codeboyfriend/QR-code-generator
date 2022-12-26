@@ -20,21 +20,29 @@
 
   <section class="flex items-center justify-center">
     <div>
-      <h2>QR Code Generator</h2>
-      <p>QR Codes allow smartphones users to access your website simply and quickly.</p>
-      <p>Enter your URL below to generate a QR Code and downlownd the image.</p>
+      <h2 class="font-bold text-2xl mb-3">QR Code Generator</h2>
+      <p class="font-[500] text-sm mb-2">QR Codes allow smartphones users to access your website simply and quickly.</p>
+      <p class="font-[500] text-sm mb-4">Enter your URL below to generate a QR Code and downlownd the image.</p>
 
       <form action="">
-        <input type="text" placeholder="Enter a URL">
-        <select name="" id="">
+        <input 
+          class="w-full text-sm p-2 mb-3 border-2 border-gray-200 rounded focus:outline-none" 
+          type="url" 
+          placeholder="Enter a URL"
+          required
+        >
+        <select class="w-full text-sm p-2 mb-2 border-2 border-gray-200 rounded focus:outline-none">
           <option value="100">100x100</option>
-              <option value="200">200x200</option>
-              <option value="300" selected>300x300</option>
-              <option value="400">400x400</option>
-              <option value="500">500x500</option>
-              <option value="600">600x600</option>
-              <option value="700">700x700</option>
+          <option value="200">200x200</option>
+          <option value="300" selected>300x300</option>
+          <option value="400">400x400</option>
+          <option value="500">500x500</option>
+          <option value="600">600x600</option>
+          <option value="700">700x700</option>
         </select>
+
+        <button class="bg-gray-600 rounded w-full text-white py-3 px-4 mt-5 hover:bg-black"
+        type="submit">Generate QR Code</button>
       </form>
     </div>
   </section>
