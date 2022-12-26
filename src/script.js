@@ -20,6 +20,11 @@ const onGenerate = (e) => {
             spinner.style.display = 'none';
             body.style.overflowY = 'scroll';
             generateQR(url, size);
+
+            setTimeout(() => {
+                const saveUrl = qr.querySelector('img').src;
+                createSaveBtn(saveUrl);
+            }, 50)
         }, 1000);
     }
     
@@ -35,7 +40,20 @@ const generateQR = (url, size) => {
 
 const clearUI = () => {
     qr.innerText = '';
+    const saveBtn = document.getElementById('save-btn');
+    if (saveBtn) {
+        saveBtn.remove();
+    }
 }
 
+const createSaveBtn = (saveUrl) => {
+    const link = document.createElement('a');
+    link.id = 'save-btn';
+    link.classList = 'bg-red-500 hover:bg-red-700 text-white font-bold py-2 rounded w-1/3 m-auto my-5';
+    link.href = saveUrl;
+    link.download = 'qrcode';
+    link.innerHTML = 'Save Image';
+    document.getElementById('generated').appendChild(link);
+}
 
 form.addEventListener('submit', onGenerate)
