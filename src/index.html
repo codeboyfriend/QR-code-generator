@@ -9,6 +9,12 @@
       rel="stylesheet"
     />
     <link href="../dist/output.css" rel="stylesheet">
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"
+      integrity="sha512-CNgIRecGo7nphbeZ04Sc13ka07paqdeTu0WR1IM4kNcpmBAUSHSQX0FslNhTDadL4O5SAGapGt4FodqL8My0mA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
     <title>QR-Code-Generator</title>
 </head>
 <body>
@@ -18,15 +24,16 @@
     </div>
   </header>
 
-  <section class="flex items-center justify-center">
-    <div>
+  <section class="flex flex-col md:flex-row items-center justify-center m-auto md:max-w-4xl p-7 md:p-10">
+    <div class="w-full mr-0 md:mr-24 md:w-2/3">
       <h2 class="font-bold text-2xl mb-3">QR Code Generator</h2>
       <p class="font-[500] text-sm mb-2">QR Codes allow smartphones users to access your website simply and quickly.</p>
       <p class="font-[500] text-sm mb-4">Enter your URL below to generate a QR Code and downlownd the image.</p>
 
-      <form action="">
+      <form id="generate-form">
         <input 
           class="w-full text-sm p-2 mb-3 border-2 border-gray-200 rounded focus:outline-none" 
+          id="url"
           type="url" 
           placeholder="Enter a URL"
           required
@@ -45,6 +52,18 @@
         type="submit">Generate QR Code</button>
       </form>
     </div>
+
+    <div class="hidden md:block w-full md:w-1/3 self-center">
+      <img 
+        class="w-1/2 m-auto mb-10 md:w-full" 
+        src="./img/qr-code.svg" 
+        alt="qr-code" 
+      />
+    </div>
+
+    <div id="qr-code"></div>
   </section>
+
+  <script src="script.js"></script>
 </body>
 </html>
