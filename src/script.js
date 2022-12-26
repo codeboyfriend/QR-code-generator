@@ -9,8 +9,9 @@ const onGenerate = (e) => {
     clearUI();
     const url = document.getElementById('url').value;
     const size = document.getElementById('size').value;
+    const input = 'https://' + url;
 
-    if (url === "") {
+    if (input === "") {
         console.log('Please')
     } else {
         spinner.style.display = 'flex';
